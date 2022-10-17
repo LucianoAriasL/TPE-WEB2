@@ -64,6 +64,7 @@ switch($params[0]){
     case "editarCategoria":
         $categoriaZapatillasController= new CategoriaZapatillasController();
         $categoriaZapatillasController->formularioEditarCategoria($params[1]);
+        break;
     case "finalizarEditadoCategoria":
         $categoriaZapatillasController= new CategoriaZapatillasController();
         $categoriaZapatillasController->finalizarEditadoCategoria($params[1]);

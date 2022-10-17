@@ -23,7 +23,7 @@ class CategoriaView{
 
     function categoriaForm($action,$categoria=null){
         $this->smarty->assign('encabezado','Formulario');
-        $this->smarty->assign('titulo','Agregar Categoria');
+        $this->smarty->assign('titulo',$action.' Categoria');
         $this->smarty->assign('action',$action);
         $this->smarty->assign('categoria',$categoria);
         $this->smarty->display('templates/formularioCategoria.tpl');

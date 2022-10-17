@@ -2,7 +2,7 @@
 class ZapatillasModel{
     private $db;
 
-    function __construct(){ //estableciendo la conexion con la base de datos
+    function __construct(){ 
         $this->db = $this->conectarBase();
     }
 

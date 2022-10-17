@@ -1,4 +1,5 @@
 {include file='templates/header.tpl'}
+{if !empty($zapatillas)}
 <table>
     <thead>
         <tr>
@@ -19,4 +20,7 @@
         {/foreach}
     </tbody>
 </table>
+{else}
+<p>No hay zapatillas en ésta categoria<p>
+{/if}
 {include file='templates/footer.tpl'}

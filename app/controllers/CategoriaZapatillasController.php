@@ -2,14 +2,18 @@
 require_once "app/models/CategoriaModel.php";
 require_once "app/views/CategoriaView.php";
 require_once "app/models/ZapatillasModel.php";
+require_once "helpers/UsuarioHelper.php";
+
 class CategoriaZapatillasController {
     private $model;
     private $view;
     private $zapatillasModel;
+    private $usuarioHelper;
     function __construct(){
         $this->model=new CategoriaModel();
         $this->view=new CategoriaView();
         $this->zapatillasModel=new ZapatillasModel();
+        $this->usuarioHelper=new UsuarioHelper();
     }
 
     function mostrarCategorias(){
@@ -21,7 +25,7 @@ class CategoriaZapatillasController {
     function formularioAgregarCategoria(){
         session_start();
         if(isset($_SESSION["Usuario"])){
-            $this->view->categoriaForm('agregar');
+            $this->view->categoriaForm('Agregar');
         }else{
             header('Location: '. BASE_URL .'tabla');
         }
@@ -50,7 +54,7 @@ class CategoriaZapatillasController {
     function formularioEditarCategoria($id){
         $this->usuarioHelper->chequearLogin();
         $categoria=$this->model->obtenerUno($id);
-        $this->view->categoriaForm('editar',$categoria);
+        $this->view->categoriaForm('Editar',$categoria);
     }
     function finalizarEditadoCategoria($id){
         $this->usuarioHelper->chequearLogin();

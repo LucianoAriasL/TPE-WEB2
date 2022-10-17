@@ -1,5 +1,5 @@
 {include file='templates/header.tpl'}
-{if $action=='agregar'}
+{if $action=='Agregar'}
 <form action="finalizarAgregadoCategoria" method="POST">
     <div>
       <label>Categoria</label>
@@ -7,7 +7,7 @@
     </div>
 <button>Agregar</button>
 </form>
-{elseif $action=='editar'}
+{elseif $action=='Editar'}
 <form action="finalizarEditadoCategoria/{$categoria->id_CategoriaDeZapatillas}" method="POST">
   <div>
     <label>Categoria</label>
