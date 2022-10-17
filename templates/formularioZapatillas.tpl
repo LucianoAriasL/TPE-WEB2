@@ -13,16 +13,16 @@
         <label>Precio</label>
         <input type="number" name="precio" required>
     </div>
-    <div>
-        <label>Descripcion</label>
-        <input type="text" name="descripcion" required>
+    <label>Descripcion</label>
+    <div>   
+        <textarea name="descripcion" rows="10" cols="30" required></textarea>
     </div>
 <select name="categoria">
     {foreach $categorias as $categoria}
     <option value="{$categoria->id_CategoriaDeZapatillas}">{$categoria->categoria}</option>
     {/foreach}
 </select>
-<button>Agregar</button>
+<button>{$action}</button>
 </form>
 {elseif $action=='Editar'}
 <form action="finalizarEditadoZapatilla/{$zapatilla->id_zapatilla}" method="POST">
@@ -38,19 +38,19 @@
         <label>Precio</label>
         <input type="number" name="precio" value="{$zapatilla->precio}" required>
     </div>
+    <label>Descripcion</label>
     <div>
-        <label>Descripcion</label>
-        <input type="text" name="descripcion" value="{$zapatilla->descripcion}" required>
+        <textarea type="text" name="descripcion" rows="10" cols="30" required>{$zapatilla->descripcion}</textarea>
     </div>
-<select name="categoria">
-    <option value="{$zapatilla->id_CategoriaDeZapatillas_fk}"selected>{$zapatilla->categoria}</option>
-    {foreach $categorias as $categoria}
-    {if $categoria->categoria!=$zapatilla->categoria}
-    <option value="{$categoria->id_CategoriaDeZapatillas}">{$categoria->categoria}</option>
-    {/if}
-    {/foreach}
-</select>
-<button>Editar</button>
+    <select name="categoria">
+        <option value="{$zapatilla->id_CategoriaDeZapatillas_fk}"selected>{$zapatilla->categoria}</option>
+        {foreach $categorias as $categoria}
+        {if $categoria->categoria!=$zapatilla->categoria}
+        <option value="{$categoria->id_CategoriaDeZapatillas}">{$categoria->categoria}</option>
+        {/if}
+        {/foreach}
+    </select>
+    <button>{$action}</button>
 </form>
 {/if}
 {include file='templates/footer.tpl'}
